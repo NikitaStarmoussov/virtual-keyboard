@@ -26,6 +26,7 @@
 .key_lower {
   width: 40px;
   height: 20px;
+  align-self: flex-end;
 }
 .key_esc {
   width: 64px;

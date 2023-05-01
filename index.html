@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +8,11 @@
   <link rel="stylesheet" href="src/css/style.css">
   <title>Document</title>
 </head>
-<body class="body">
+
+<body class="body" id="body">
   <section class="keyboard">
     <div class="container">
-      <div class="keyboard__wrapper">
+      <div class="keyboard__wrapper container">
         <div class="keyboard__line">
           <div class="keyboard__key key key_esc key_left">esc</div>
           <div class="keyboard__key key key_lower key_center">f1</div>
@@ -97,20 +99,21 @@
           <div class="keyboard__key key key_xxxl"></div>
           <div class="keyboard__key key key_m key_right">cmd</div>
           <div class="keyboard__key key key_s key_right">f4</div>
-          <div class="keyboard__arrow-wrapper">
-            <div class="keyboard__key key key_lower key_center">left</div>
-          </div>
-          <div class="keyboard__arrow-wrapper-center">
+          <!-- <div class="keyboard__arrow-wrapper"> -->
+          <div class="keyboard__key key key_lower key_center">left</div>
+          <!-- </div> -->
+          <div class="keyboard__wrapper">
             <div class="keyboard__key key key_lower key_center">up</div>
             <div class="keyboard__key key key_lower key_center">down</div>
           </div>
-          <div class="keyboard__arrow-wrapper">
-            <div class="keyboard__key key key_lower key_center">right</div>
-          </div>
+          <!-- <div class="keyboard__arrow-wrapper"> -->
+          <div class="keyboard__key key key_lower key_center">right</div>
+          <!-- </div> -->
         </div>
       </div>
     </div>
   </section>
   <script src="src/js/script.js"></script>
 </body>
+
 </html>

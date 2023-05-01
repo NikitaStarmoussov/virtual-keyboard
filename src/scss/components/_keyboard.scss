@@ -10,6 +10,7 @@
   &__line {
     display: flex;
     justify-content: space-between;
+    // flex-wrap: wrap;
   }
   //arrow styles
   &__arrow-wrapper{
@@ -27,7 +28,19 @@
   &_lower {
     width: 40px;
     height: 20px;
+    align-self: flex-end;
   }
+  // &_up{
+  //   // display: inline;
+  //   width: 40px;
+  //   height: 20px;
+  //   align-self: flex-start;
+  // }
+  // &_down{
+  //   width: 40px;
+  //   height: 20px;
+  //   align-self: flex-end;
+  // }
   &_esc{
     width: 64px;
 height: 20px;
