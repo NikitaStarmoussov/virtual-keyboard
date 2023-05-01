@@ -154,6 +154,90 @@ const basicAlphabet = [[
       'class':'key key_l key_right'
     },
   ],
+  [
+    {
+      'name':'tab',
+      'id':'Tab',
+      'class':'key key_l key_left'
+    },
+  ],
+  [
+    {
+      'name':'capslock',
+      'id':'CapsLock',
+      'class':'key key_xl key_left'
+    },
+    {
+      'name':'return',
+      'id':'Enter',
+      'class':'key key_xl key_right'
+    },
+    
+  ],
+  [
+    {
+      'name':'shift',
+      'id':'ShiftLeft',
+      'class':'key key_xxl key_left'
+    },
+    {
+      'name':'shift',
+      'id':'ShiftRight',
+      'class':'key key_xxl key_right'
+    },
+  ],
+  [
+    {
+      'name':'fn',
+      'id':'fn',
+      'class':'key key_s key_left'
+    },
+    {
+      'name':'ctrl',
+      'id':'ControlLeft',
+      'class':'key key_s key_left'
+    },
+    {
+      'name':'alt',
+      'id':'AltLeft',
+      'class':'key key_s key_left'
+    },
+    {
+      'name':'cmd',
+      'id':'MetaLeft',
+      'class':'key key_m key_left'
+    },
+    {
+      'name':' ',
+      'id':'Space',
+      'class':'key key_xxxl key_center'
+    },
+    {
+      'name':'cmd',
+      'id':'MetaRight',
+      'class':'key key_m key_right'
+    },
+    {
+      'name':'alt',
+      'id':'AltRight',
+      'class':'key key_s key_right'
+    },
+    {
+      'name':'◄',
+      'id':'ArrowLeft',
+      'class':'key key_lower key_center'
+    },
+    {
+      'name':'',
+      'id':'arrow-wrapper',
+      'class':'keyboard__wrapper'
+    },
+    {
+      'name':'►',
+      'id':'ArrowRight',
+      'class':'key key_lower key_center'
+    },
+  ],
 
   
 ]
@@ -224,7 +308,7 @@ function createBasicKeyboard(alphabet){
   keyboardWrapper.classList.add('keyboard__wrapper', 'container')
   body.prepend(keyboard);
   keyboard.prepend(keyboardWrapper);
-  for(i=0;i<2;i++){
+  for(i=0;i<6;i++){
 
     //TODO change 2 for 6
 
@@ -232,7 +316,7 @@ function createBasicKeyboard(alphabet){
     let keyboardLine = 0;
     keyboardLine = document.createElement('ul')
     keyboardLine.classList.add('keyboard__line')
-    for(y=0;y<14;y++){
+    for(y=0;y<alphabet[i].length;y++){
       let keyboardElement = 0;
       keyboardElement = document.createElement('li');
       keyboardElement.textContent = alphabet[i][y].name;
@@ -243,6 +327,18 @@ function createBasicKeyboard(alphabet){
     keyboardWrapper.append(keyboardLine);
     
   }
+  const arrowWrapper = document.querySelector('#arrow-wrapper')
+  const arrowUp = document.createElement('li');
+  arrowUp.className = 'key key_lower key_center';
+  arrowUp.textContent = '▲';
+  arrowUp.id = 'ArrowUp';
+  arrowWrapper.append(arrowUp);
+  const arrowDown = document.createElement('li');
+  arrowDown.className = 'key key_lower key_center';
+  arrowDown.textContent = '▼';
+  arrowDown.id = 'ArrowDown';
+  arrowWrapper.append(arrowDown);
+  
 }
 createBasicKeyboard(basicAlphabet)
 // createBasicKeyboard(englishAlphabet)
@@ -275,7 +371,7 @@ function addKeyboard(alphabet){
 
 function addTextArea(){
   const body = document.querySelector('#body');
-  const textArea = document.createElement('section')
+  const textArea = document.createElement('text-area')
   textArea.classList.add('text-area')
   body.prepend(textArea);
 }
@@ -285,9 +381,16 @@ document.addEventListener('keydown', function pressKeyDown(event){
   const preesedKey = document.querySelector(`#${event.code}`)
   console.log(preesedKey)
   preesedKey.classList.add('key_active')
-  textAreaContent+= event.key;
+  
   const textArea = document.querySelector('.text-area');
-  textArea.textContent = textAreaContent;
+  if(event.key === 'Backspace'){
+    textAreaContent = textAreaContent.slice(0, -1)
+    textArea.textContent = textAreaContent;
+  }else{
+    textAreaContent+= event.key;
+    textArea.textContent = textAreaContent;
+  }
+  
   console.log(event.code, event.key)
 })
 document.addEventListener('keyup', function pressKeyup(event){
