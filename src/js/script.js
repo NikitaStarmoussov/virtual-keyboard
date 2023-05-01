@@ -217,7 +217,7 @@ const spaceClasses = ['key','key_xxxl','key_right'];
 // }
 function createBasicKeyboard(alphabet){
   const body = document.querySelector('#body');
-  body.classList.add('body')
+  body.classList.add('body','container')
   const keyboard = document.createElement('section')
   keyboard.classList.add('keyboard')
   const keyboardWrapper = document.createElement('div')
@@ -273,13 +273,21 @@ function addKeyboard(alphabet){
 }
 // addKeyboard(englishAlphabet)
 
-
-
-
+function addTextArea(){
+  const body = document.querySelector('#body');
+  const textArea = document.createElement('section')
+  textArea.classList.add('text-area')
+  body.prepend(textArea);
+}
+addTextArea()
+let textAreaContent = '';
 document.addEventListener('keydown', function pressKeyDown(event){
   const preesedKey = document.querySelector(`#${event.code}`)
   console.log(preesedKey)
   preesedKey.classList.add('key_active')
+  textAreaContent+= event.key;
+  const textArea = document.querySelector('.text-area');
+  textArea.textContent = textAreaContent;
   console.log(event.code, event.key)
 })
 document.addEventListener('keyup', function pressKeyup(event){

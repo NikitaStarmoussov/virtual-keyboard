@@ -77,6 +77,13 @@
   padding-right: 2px;
 }
 
+.text-area {
+  width: 644px;
+  height: 248px;
+  background: #7a7a7a;
+  font-size: 16px;
+}
+
 /* base */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -309,4 +316,15 @@ template {
 
 [hidden] {
   display: none;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 644px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
