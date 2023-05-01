@@ -28,6 +28,9 @@
   height: 20px;
   align-self: flex-end;
 }
+.key_active {
+  background-color: red;
+}
 .key_esc {
   width: 64px;
   height: 20px;

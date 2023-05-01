@@ -1,6 +1,6 @@
-document.addEventListener('keydown', function pressKeyDown(event){
-  console.log(event)
-})
+// document.addEventListener('keydown', function pressKeyDown(event){
+//   console.log(event)
+// })
 // first alphabet for english keyboard
 const englishAlphabet = [
   ['esc','f1','f2','f3','f4','f5','f6','f7','f8','f9','f10','f11','f12','off'],
@@ -14,67 +14,67 @@ const englishAlphabet = [
 const basicAlphabet = [[
   {
     'name':'ecs',
-    'id':'27',
+    'id':'Escape',
     'class':'key key_esc key_left'
   },
   {
     'name':'f1',
-    'id':'112',
+    'id':'F1',
     'class':'key key_lower key_center'
   },
   {
     'name':'f2',
-    'id':'113',
+    'id':'F2',
     'class':'key key_lower key_center'
   },
   {
     'name':'f3',
-    'id':'114',
+    'id':'F3',
     'class':'key key_lower key_center'
   },
   {
     'name':'f4',
-    'id':'115',
+    'id':'F4',
     'class':'key key_lower key_center'
   },
   {
     'name':'f5',
-    'id':'116',
+    'id':'F5',
     'class':'key key_lower key_center'
   },
   {
     'name':'f6',
-    'id':'117',
+    'id':'F6',
     'class':'key key_lower key_center'
   },
   {
     'name':'f7',
-    'id':'118',
+    'id':'F7',
     'class':'key key_lower key_center'
   },
   {
     'name':'f8',
-    'id':'119',
+    'id':'F8',
     'class':'key key_lower key_center'
   },
   {
     'name':'f9',
-    'id':'120',
+    'id':'F9',
     'class':'key key_lower key_center'
   },
   {
     'name':'f10',
-    'id':'121',
+    'id':'F10',
     'class':'key key_lower key_center'
   },
   {
     'name':'f11',
-    'id':'122',
+    'id':'F11',
     'class':'key key_lower key_center'
   },
   {
     'name':'f12',
-    'id':'123',
+    'id':'F12',
     'class':'key key_lower key_center'
   },
   {
@@ -85,72 +85,72 @@ const basicAlphabet = [[
   [
     {
       'name':'§',
-      'id':'192',
+      'id':'Backquote',
       'class':'key key_s key_center'
     },
     {
       'name':'1',
-      'id':'49',
+      'id':'Digit1',
       'class':'key key_s key_center'
     },
     {
       'name':'2',
-      'id':'50',
+      'id':'Digit2',
       'class':'key key_s key_center'
     },
     {
       'name':'3',
-      'id':'51',
+      'id':'Digit3',
       'class':'key key_s key_center'
     },
     {
       'name':'4',
-      'id':'52',
+      'id':'Digit4',
       'class':'key key_s key_center'
     },
     {
       'name':'5',
-      'id':'53',
+      'id':'Digit5',
       'class':'key key_s key_center'
     },
     {
       'name':'6',
-      'id':'54',
+      'id':'Digit6',
       'class':'key key_s key_center'
     },
     {
       'name':'7',
-      'id':'55',
+      'id':'Digit7',
       'class':'key key_s key_center'
     },
     {
       'name':'8',
-      'id':'56',
+      'id':'Digit8',
       'class':'key key_s key_center'
     },
     {
       'name':'9',
-      'id':'57',
+      'id':'Digit9',
       'class':'key key_s key_center'
     },
     {
       'name':'0',
-      'id':'48',
+      'id':'Digit0',
       'class':'key key_s key_center'
     },
     {
       'name':'-',
-      'id':'189',
+      'id':'Minus',
       'class':'key key_s key_center'
     },
     {
       'name':'=',
-      'id':'187',
+      'id':'Equal',
       'class':'key key_s key_center'
     },
     {
       'name':'delete',
-      'id':'8',
+      'id':'Backspace',
       'class':'key key_l key_right'
     },
   ],
@@ -224,7 +224,11 @@ function createBasicKeyboard(alphabet){
   keyboardWrapper.classList.add('keyboard__wrapper', 'container')
   body.prepend(keyboard);
   keyboard.prepend(keyboardWrapper);
-  for(i=0;i<6;i++){
+  for(i=0;i<2;i++){
+
+    //TODO change 2 for 6
+
+
     let keyboardLine = 0;
     keyboardLine = document.createElement('ul')
     keyboardLine.classList.add('keyboard__line')
@@ -268,3 +272,19 @@ function addKeyboard(alphabet){
   
 }
 // addKeyboard(englishAlphabet)
+
+
+
+
+document.addEventListener('keydown', function pressKeyDown(event){
+  const preesedKey = document.querySelector(`#${event.code}`)
+  console.log(preesedKey)
+  preesedKey.classList.add('key_active')
+  console.log(event.code, event.key)
+})
+document.addEventListener('keyup', function pressKeyup(event){
+  const preesedKey = document.querySelector(`#${event.code}`)
+  console.log(preesedKey)
+  preesedKey.classList.remove('key_active')
+  console.log(event.code, event.key)
+})

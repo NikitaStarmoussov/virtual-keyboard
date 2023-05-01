@@ -30,6 +30,9 @@
     height: 20px;
     align-self: flex-end;
   }
+  &_active{
+    background-color: red;
+  }
   // &_up{
   //   // display: inline;
   //   width: 40px;
