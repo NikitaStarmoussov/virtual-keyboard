@@ -3,587 +3,543 @@
 // })
 // first alphabet for english keyboard
 let currentLang = 0;
-function setLocalStorage() {
-  localStorage.setItem("lang", currentLang);
-}
-window.addEventListener("beforeunload", setLocalStorage);
-function getLocalStorage() {
-  if (localStorage.getItem("lang")) {
-    currentLang = localStorage.getItem("lang");
-    addLetters(currentLang);
-  } else {
-    currentLang = "smallEn";
-    addLetters(currentLang);
-  }
-}
-window.addEventListener("load", getLocalStorage);
 
 const letterAlphabet = [
   [
     {
-      bigEn: "Q",
-      smallEn: "q",
-      bigRu: "Й",
-      smallRu: "й",
-      id: "KeyQ",
-      class: "key key_s key_center",
+      bigEn: 'Q',
+      smallEn: 'q',
+      bigRu: 'Й',
+      smallRu: 'й',
+      id: 'KeyQ',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: "W",
-      smallEn: "w",
-      bigRu: "Ц",
-      smallRu: "ц",
-      id: "KeyW",
-      class: "key key_s key_center",
+      bigEn: 'W',
+      smallEn: 'w',
+      bigRu: 'Ц',
+      smallRu: 'ц',
+      id: 'KeyW',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: "E",
-      smallEn: "e",
-      bigRu: "У",
-      smallRu: "у",
-      id: "KeyE",
-      class: "key key_s key_center",
+      bigEn: 'E',
+      smallEn: 'e',
+      bigRu: 'У',
+      smallRu: 'у',
+      id: 'KeyE',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: "R",
-      smallEn: "r",
-      bigRu: "К",
-      smallRu: "к",
-      id: "KeyR",
-      class: "key key_s key_center",
+      bigEn: 'R',
+      smallEn: 'r',
+      bigRu: 'К',
+      smallRu: 'к',
+      id: 'KeyR',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: "T",
-      smallEn: "t",
-      bigRu: "Е",
-      smallRu: "е",
-      id: "KeyT",
-      class: "key key_s key_center",
+      bigEn: 'T',
+      smallEn: 't',
+      bigRu: 'Е',
+      smallRu: 'е',
+      id: 'KeyT',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: "Y",
-      smallEn: "y",
-      bigRu: "Н",
-      smallRu: "н",
-      id: "KeyY",
-      class: "key key_s key_center",
+      bigEn: 'Y',
+      smallEn: 'y',
+      bigRu: 'Н',
+      smallRu: 'н',
+      id: 'KeyY',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: "U",
-      smallEn: "u",
-      bigRu: "Г",
-      smallRu: "г",
-      id: "KeyU",
-      class: "key key_s key_center",
+      bigEn: 'U',
+      smallEn: 'u',
+      bigRu: 'Г',
+      smallRu: 'г',
+      id: 'KeyU',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: "I",
-      smallEn: "i",
-      bigRu: "Ш",
-      smallRu: "ш",
-      id: "KeyI",
-      class: "key key_s key_center",
+      bigEn: 'I',
+      smallEn: 'i',
+      bigRu: 'Ш',
+      smallRu: 'ш',
+      id: 'KeyI',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: "O",
-      smallEn: "o",
-      bigRu: "Щ",
-      smallRu: "щ",
-      id: "KeyO",
-      class: "key key_s key_center",
+      bigEn: 'O',
+      smallEn: 'o',
+      bigRu: 'Щ',
+      smallRu: 'щ',
+      id: 'KeyO',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: "P",
-      smallEn: "p",
-      bigRu: "З",
-      smallRu: "з",
-      id: "KeyP",
-      class: "key key_s key_center",
+      bigEn: 'P',
+      smallEn: 'p',
+      bigRu: 'З',
+      smallRu: 'з',
+      id: 'KeyP',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: "{",
-      smallEn: "[",
-      bigRu: "Х",
-      smallRu: "х",
-      id: "BracketLeft",
-      class: "key key_s key_center",
+      bigEn: '{',
+      smallEn: '[',
+      bigRu: 'Х',
+      smallRu: 'х',
+      id: 'BracketLeft',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: "}",
-      smallEn: "]",
-      bigRu: "Ъ",
-      smallRu: "ъ",
-      id: "BracketRight",
-      class: "key key_s key_center",
+      bigEn: '}',
+      smallEn: ']',
+      bigRu: 'Ъ',
+      smallRu: 'ъ',
+      id: 'BracketRight',
+      class: 'key key_s key_center',
     },
   ],
   [
     {
-      bigEn: "A",
-      smallEn: "a",
-      bigRu: "Ф",
-      smallRu: "ф",
-      id: "KeyA",
-      class: "key key_s key_center",
+      bigEn: 'A',
+      smallEn: 'a',
+      bigRu: 'Ф',
+      smallRu: 'ф',
+      id: 'KeyA',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: "S",
-      smallEn: "s",
-      bigRu: "Ы",
-      smallRu: "ы",
-      id: "KeyS",
-      class: "key key_s key_center",
+      bigEn: 'S',
+      smallEn: 's',
+      bigRu: 'Ы',
+      smallRu: 'ы',
+      id: 'KeyS',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: "D",
-      smallEn: "d",
-      bigRu: "В",
-      smallRu: "в",
-      id: "KeyD",
-      class: "key key_s key_center",
+      bigEn: 'D',
+      smallEn: 'd',
+      bigRu: 'В',
+      smallRu: 'в',
+      id: 'KeyD',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: "F",
-      smallEn: "f",
-      bigRu: "А",
-      smallRu: "а",
-      id: "KeyF",
-      class: "key key_s key_center",
+      bigEn: 'F',
+      smallEn: 'f',
+      bigRu: 'А',
+      smallRu: 'а',
+      id: 'KeyF',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: "G",
-      smallEn: "g",
-      bigRu: "П",
-      smallRu: "п",
-      id: "KeyG",
-      class: "key key_s key_center",
+      bigEn: 'G',
+      smallEn: 'g',
+      bigRu: 'П',
+      smallRu: 'п',
+      id: 'KeyG',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: "H",
-      smallEn: "h",
-      bigRu: "Р",
-      smallRu: "р",
-      id: "KeyH",
-      class: "key key_s key_center",
+      bigEn: 'H',
+      smallEn: 'h',
+      bigRu: 'Р',
+      smallRu: 'р',
+      id: 'KeyH',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: "J",
-      smallEn: "j",
-      bigRu: "О",
-      smallRu: "о",
-      id: "KeyJ",
-      class: "key key_s key_center",
+      bigEn: 'J',
+      smallEn: 'j',
+      bigRu: 'О',
+      smallRu: 'о',
+      id: 'KeyJ',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: "K",
-      smallEn: "k",
-      bigRu: "Л",
-      smallRu: "л",
-      id: "KeyK",
-      class: "key key_s key_center",
+      bigEn: 'K',
+      smallEn: 'k',
+      bigRu: 'Л',
+      smallRu: 'л',
+      id: 'KeyK',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: "L",
-      smallEn: "l",
-      bigRu: "Д",
-      smallRu: "д",
-      id: "KeyL",
-      class: "key key_s key_center",
+      bigEn: 'L',
+      smallEn: 'l',
+      bigRu: 'Д',
+      smallRu: 'д',
+      id: 'KeyL',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: ":",
-      smallEn: ";",
-      bigRu: "Ж",
-      smallRu: "ж",
-      id: "Semicolon",
-      class: "key key_s key_center",
+      bigEn: ':',
+      smallEn: ';',
+      bigRu: 'Ж',
+      smallRu: 'ж',
+      id: 'Semicolon',
+      class: 'key key_s key_center',
     },
     {
       bigEn: '"',
       smallEn: "'",
-      bigRu: "Э",
-      smallRu: "э",
-      id: "Quote",
-      class: "key key_s key_center",
+      bigRu: 'Э',
+      smallRu: 'э',
+      id: 'Quote',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: "\\",
-      smallEn: "|",
-      bigRu: "/",
-      smallRu: "\\",
-      id: "Backslash",
-      class: "key key_s key_center",
+      bigEn: '\\',
+      smallEn: '|',
+      bigRu: '/',
+      smallRu: '\\',
+      id: 'Backslash',
+      class: 'key key_s key_center',
     },
   ],
   [
     {
-      bigEn: "~",
-      smallEn: "`",
-      bigRu: "[",
-      smallRu: "]",
-      id: "Backquote",
-      class: "key key_s key_center",
+      bigEn: '~',
+      smallEn: '`',
+      bigRu: '[',
+      smallRu: ']',
+      id: 'Backquote',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: "Z",
-      smallEn: "z",
-      bigRu: "Я",
-      smallRu: "я",
-      id: "KeyZ",
-      class: "key key_s key_center",
+      bigEn: 'Z',
+      smallEn: 'z',
+      bigRu: 'Я',
+      smallRu: 'я',
+      id: 'KeyZ',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: "X",
-      smallEn: "x",
-      bigRu: "Ч",
-      smallRu: "ч",
-      id: "KeyX",
-      class: "key key_s key_center",
+      bigEn: 'X',
+      smallEn: 'x',
+      bigRu: 'Ч',
+      smallRu: 'ч',
+      id: 'KeyX',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: "C",
-      smallEn: "c",
-      bigRu: "С",
-      smallRu: "с",
-      id: "KeyC",
-      class: "key key_s key_center",
+      bigEn: 'C',
+      smallEn: 'c',
+      bigRu: 'С',
+      smallRu: 'с',
+      id: 'KeyC',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: "V",
-      smallEn: "v",
-      bigRu: "М",
-      smallRu: "м",
-      id: "KeyV",
-      class: "key key_s key_center",
+      bigEn: 'V',
+      smallEn: 'v',
+      bigRu: 'М',
+      smallRu: 'м',
+      id: 'KeyV',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: "B",
-      smallEn: "b",
-      bigRu: "И",
-      smallRu: "и",
-      id: "KeyB",
-      class: "key key_s key_center",
+      bigEn: 'B',
+      smallEn: 'b',
+      bigRu: 'И',
+      smallRu: 'и',
+      id: 'KeyB',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: "N",
-      smallEn: "n",
-      bigRu: "Т",
-      smallRu: "т",
-      id: "KeyN",
-      class: "key key_s key_center",
+      bigEn: 'N',
+      smallEn: 'n',
+      bigRu: 'Т',
+      smallRu: 'т',
+      id: 'KeyN',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: "M",
-      smallEn: "m",
-      bigRu: "Ь",
-      smallRu: "ь",
-      id: "KeyM",
-      class: "key key_s key_center",
+      bigEn: 'M',
+      smallEn: 'm',
+      bigRu: 'Ь',
+      smallRu: 'ь',
+      id: 'KeyM',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: "<",
-      smallEn: ",",
-      bigRu: "Б",
-      smallRu: "б",
-      id: "Comma",
-      class: "key key_s key_center",
+      bigEn: '<',
+      smallEn: ',',
+      bigRu: 'Б',
+      smallRu: 'б',
+      id: 'Comma',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: ">",
-      smallEn: ".",
-      bigRu: "Ю",
-      smallRu: "ю",
-      id: "Period",
-      class: "key key_s key_center",
+      bigEn: '>',
+      smallEn: '.',
+      bigRu: 'Ю',
+      smallRu: 'ю',
+      id: 'Period',
+      class: 'key key_s key_center',
     },
     {
-      bigEn: ",",
-      smallEn: ".",
-      bigRu: "?",
-      smallRu: "/",
-      id: "Slash",
-      class: "key key_s key_center",
+      bigEn: ',',
+      smallEn: '.',
+      bigRu: '?',
+      smallRu: '/',
+      id: 'Slash',
+      class: 'key key_s key_center',
     },
   ],
 ];
 const basicAlphabet = [
   [
     {
-      name: "ecs",
-      id: "Escape",
-      class: "key key_esc key_left",
+      name: 'ecs',
+      id: 'Escape',
+      class: 'key key_esc key_left',
     },
     {
-      name: "f1",
-      id: "F1",
-      class: "key key_lower key_center",
+      name: 'f1',
+      id: 'F1',
+      class: 'key key_lower key_center',
     },
     {
-      name: "f2",
-      id: "F2",
-      class: "key key_lower key_center",
+      name: 'f2',
+      id: 'F2',
+      class: 'key key_lower key_center',
     },
     {
-      name: "f3",
-      id: "F3",
-      class: "key key_lower key_center",
+      name: 'f3',
+      id: 'F3',
+      class: 'key key_lower key_center',
     },
     {
-      name: "f4",
-      id: "F4",
-      class: "key key_lower key_center",
+      name: 'f4',
+      id: 'F4',
+      class: 'key key_lower key_center',
     },
     {
-      name: "f5",
-      id: "F5",
-      class: "key key_lower key_center",
+      name: 'f5',
+      id: 'F5',
+      class: 'key key_lower key_center',
     },
     {
-      name: "f6",
-      id: "F6",
-      class: "key key_lower key_center",
+      name: 'f6',
+      id: 'F6',
+      class: 'key key_lower key_center',
     },
     {
-      name: "f7",
-      id: "F7",
-      class: "key key_lower key_center",
+      name: 'f7',
+      id: 'F7',
+      class: 'key key_lower key_center',
     },
     {
-      name: "f8",
-      id: "F8",
-      class: "key key_lower key_center",
+      name: 'f8',
+      id: 'F8',
+      class: 'key key_lower key_center',
     },
     {
-      name: "f9",
-      id: "F9",
-      class: "key key_lower key_center",
+      name: 'f9',
+      id: 'F9',
+      class: 'key key_lower key_center',
     },
     {
-      name: "f10",
-      id: "F10",
-      class: "key key_lower key_center",
+      name: 'f10',
+      id: 'F10',
+      class: 'key key_lower key_center',
     },
     {
-      name: "f11",
-      id: "F11",
-      class: "key key_lower key_center",
+      name: 'f11',
+      id: 'F11',
+      class: 'key key_lower key_center',
     },
     {
-      name: "f12",
-      id: "F12",
-      class: "key key_lower key_center",
+      name: 'f12',
+      id: 'F12',
+      class: 'key key_lower key_center',
     },
     {
-      name: "off",
-      id: "off",
-      class: "key key_lower key_right",
-    },
-  ],
-  [
-    {
-      name: "§",
-      id: "Backquote",
-      class: "key key_s key_center",
-    },
-    {
-      name: "1",
-      id: "Digit1",
-      class: "key key_s key_center",
-    },
-    {
-      name: "2",
-      id: "Digit2",
-      class: "key key_s key_center",
-    },
-    {
-      name: "3",
-      id: "Digit3",
-      class: "key key_s key_center",
-    },
-    {
-      name: "4",
-      id: "Digit4",
-      class: "key key_s key_center",
-    },
-    {
-      name: "5",
-      id: "Digit5",
-      class: "key key_s key_center",
-    },
-    {
-      name: "6",
-      id: "Digit6",
-      class: "key key_s key_center",
-    },
-    {
-      name: "7",
-      id: "Digit7",
-      class: "key key_s key_center",
-    },
-    {
-      name: "8",
-      id: "Digit8",
-      class: "key key_s key_center",
-    },
-    {
-      name: "9",
-      id: "Digit9",
-      class: "key key_s key_center",
-    },
-    {
-      name: "0",
-      id: "Digit0",
-      class: "key key_s key_center",
-    },
-    {
-      name: "-",
-      id: "Minus",
-      class: "key key_s key_center",
-    },
-    {
-      name: "=",
-      id: "Equal",
-      class: "key key_s key_center",
-    },
-    {
-      name: "delete",
-      id: "Backspace",
-      class: "key key_l key_right",
+      name: 'off',
+      id: 'off',
+      class: 'key key_lower key_right',
     },
   ],
   [
     {
-      name: "tab",
-      id: "Tab",
-      class: "key key_l key_left",
+      name: '§',
+      id: 'Backquote',
+      class: 'key key_s key_center',
+    },
+    {
+      name: '1',
+      id: 'Digit1',
+      class: 'key key_s key_center',
+    },
+    {
+      name: '2',
+      id: 'Digit2',
+      class: 'key key_s key_center',
+    },
+    {
+      name: '3',
+      id: 'Digit3',
+      class: 'key key_s key_center',
+    },
+    {
+      name: '4',
+      id: 'Digit4',
+      class: 'key key_s key_center',
+    },
+    {
+      name: '5',
+      id: 'Digit5',
+      class: 'key key_s key_center',
+    },
+    {
+      name: '6',
+      id: 'Digit6',
+      class: 'key key_s key_center',
+    },
+    {
+      name: '7',
+      id: 'Digit7',
+      class: 'key key_s key_center',
+    },
+    {
+      name: '8',
+      id: 'Digit8',
+      class: 'key key_s key_center',
+    },
+    {
+      name: '9',
+      id: 'Digit9',
+      class: 'key key_s key_center',
+    },
+    {
+      name: '0',
+      id: 'Digit0',
+      class: 'key key_s key_center',
+    },
+    {
+      name: '-',
+      id: 'Minus',
+      class: 'key key_s key_center',
+    },
+    {
+      name: '=',
+      id: 'Equal',
+      class: 'key key_s key_center',
+    },
+    {
+      name: 'delete',
+      id: 'Backspace',
+      class: 'key key_l key_right',
     },
   ],
   [
     {
-      name: "capslock",
-      id: "CapsLock",
-      class: "key key_xl key_left",
-    },
-    {
-      name: "return",
-      id: "Enter",
-      class: "key key_xl key_right",
+      name: 'tab',
+      id: 'Tab',
+      class: 'key key_l key_left',
     },
   ],
   [
     {
-      name: "shift",
-      id: "ShiftLeft",
-      class: "key key_xxl key_left",
+      name: 'capslock',
+      id: 'CapsLock',
+      class: 'key key_xl key_left',
     },
     {
-      name: "shift",
-      id: "ShiftRight",
-      class: "key key_xxl key_right",
+      name: 'return',
+      id: 'Enter',
+      class: 'key key_xl key_right',
     },
   ],
   [
     {
-      name: "fn",
-      id: "fn",
-      class: "key key_s key_left",
+      name: 'shift',
+      id: 'ShiftLeft',
+      class: 'key key_xxl key_left',
     },
     {
-      name: "ctrl",
-      id: "ControlLeft",
-      class: "key key_s key_left",
+      name: 'shift',
+      id: 'ShiftRight',
+      class: 'key key_xxl key_right',
+    },
+  ],
+  [
+    {
+      name: 'fn',
+      id: 'fn',
+      class: 'key key_s key_left',
     },
     {
-      name: "alt",
-      id: "AltLeft",
-      class: "key key_s key_left",
+      name: 'ctrl',
+      id: 'ControlLeft',
+      class: 'key key_s key_left',
     },
     {
-      name: "cmd",
-      id: "MetaLeft",
-      class: "key key_m key_left",
+      name: 'alt',
+      id: 'AltLeft',
+      class: 'key key_s key_left',
     },
     {
-      name: " ",
-      id: "Space",
-      class: "key key_xxxl key_center",
+      name: 'cmd',
+      id: 'MetaLeft',
+      class: 'key key_m key_left',
     },
     {
-      name: "cmd",
-      id: "MetaRight",
-      class: "key key_m key_right",
+      name: ' ',
+      id: 'Space',
+      class: 'key key_xxxl key_center',
     },
     {
-      name: "alt",
-      id: "AltRight",
-      class: "key key_s key_right",
+      name: 'cmd',
+      id: 'MetaRight',
+      class: 'key key_m key_right',
     },
     {
-      name: "◄",
-      id: "ArrowLeft",
-      class: "key key_lower key_center",
+      name: 'alt',
+      id: 'AltRight',
+      class: 'key key_s key_right',
     },
     {
-      name: "",
-      id: "arrow-wrapper",
-      class: "keyboard__wrapper",
+      name: '◄',
+      id: 'ArrowLeft',
+      class: 'key key_lower key_center',
     },
     {
-      name: "►",
-      id: "ArrowRight",
-      class: "key key_lower key_center",
+      name: '',
+      id: 'arrow-wrapper',
+      class: 'keyboard__wrapper',
+    },
+    {
+      name: '►',
+      id: 'ArrowRight',
+      class: 'key key_lower key_center',
     },
   ],
 ];
 
-// function createBasicKeyboard(alphabet){
-//   const body = document.querySelector('#body');
-//   body.classList.add('body')
-//   const keyboard = document.createElement('section')
-//   keyboard.classList.add('keyboard')
-//   const keyboardWrapper = document.createElement('div')
-//   keyboardWrapper.classList.add('keyboard__wrapper', 'container')
-//   body.prepend(keyboard);
-//   keyboard.prepend(keyboardWrapper);
-//   for(i=0;i<6;i++){
-//     let keyboardLine = 0;
-//     keyboardLine = document.createElement('ul')
-//     keyboardLine.classList.add('keyboard__line')
-//     for(y=0;y<alphabet[i].length;y++){
-//       let keyboardElement = 0;
-//       keyboardElement = document.createElement('li');
-//       keyboardElement.innerText = alphabet[i][y];
-//       keyboardLine.append(keyboardElement)
-//     }
-//     keyboardWrapper.append(keyboardLine);
-
-//   }
-
-// for(i=0;i<6;i++){
-//   keyboardLine = document.createElement('ul');
-//   keyboardLine.classList.add('keyboard__line');
-//   keyboardLine.prepend(...keyboardLine[i])
-//   keyboardWrapper.prepend[keyboardLine]
-// }
-// }
-const body = document.querySelector("#body");
-body.classList.add("body", "container");
-const keyboard = document.createElement("section");
-keyboard.classList.add("keyboard");
-body.prepend(keyboard);
+const bodyWapper = document.querySelector('#body');
+bodyWapper.classList.add('body', 'container');
+const keyboard = document.createElement('section');
+keyboard.classList.add('keyboard');
+bodyWapper.prepend(keyboard);
 function createBasicKeyboard(alphabet) {
-  const keyboardWrapper = document.createElement("div");
-  keyboardWrapper.classList.add("keyboard__wrapper", "container");
+  const keyboardWrapper = document.createElement('div');
+  keyboardWrapper.classList.add('keyboard__wrapper', 'container');
   keyboard.prepend(keyboardWrapper);
-  for (let i = 0; i < 6; i++) {
-    //TODO change 2 for 6
+  for (let i = 0; i < 6; i += 1) {
+    // TODO change 2 for 6
 
     let keyboardLine = 0;
-    keyboardLine = document.createElement("ul");
-    keyboardLine.classList.add("keyboard__line");
-    for (let y = 0; y < alphabet[i].length; y++) {
+    keyboardLine = document.createElement('ul');
+    keyboardLine.classList.add('keyboard__line');
+    for (let y = 0; y < alphabet[i].length; y += 1) {
       let keyboardElement = 0;
-      keyboardElement = document.createElement("li");
+      keyboardElement = document.createElement('li');
       keyboardElement.innerText = alphabet[i][y].name;
       keyboardElement.className = alphabet[i][y].class;
       keyboardElement.id = alphabet[i][y].id;
@@ -591,16 +547,16 @@ function createBasicKeyboard(alphabet) {
     }
     keyboardWrapper.append(keyboardLine);
   }
-  const arrowWrapper = document.querySelector("#arrow-wrapper");
-  const arrowUp = document.createElement("li");
-  arrowUp.className = "key key_lower key_center";
-  arrowUp.innerText = "▲";
-  arrowUp.id = "ArrowUp";
+  const arrowWrapper = document.querySelector('#arrow-wrapper');
+  const arrowUp = document.createElement('li');
+  arrowUp.className = 'key key_lower key_center';
+  arrowUp.innerText = '▲';
+  arrowUp.id = 'ArrowUp';
   arrowWrapper.append(arrowUp);
-  const arrowDown = document.createElement("li");
-  arrowDown.className = "key key_lower key_center";
-  arrowDown.innerText = "▼";
-  arrowDown.id = "ArrowDown";
+  const arrowDown = document.createElement('li');
+  arrowDown.className = 'key key_lower key_center';
+  arrowDown.innerText = '▼';
+  arrowDown.id = 'ArrowDown';
   arrowWrapper.append(arrowDown);
 }
 createBasicKeyboard(basicAlphabet);
@@ -610,11 +566,11 @@ createBasicKeyboard(basicAlphabet);
 //   let keyboardLine;
 //   let currentKey;
 //   //todo change for add all html elements
-//   for(i=0;i<6;i++){
+//   for(i=0;i<6;i+=1){
 //     keyboardLine = document.createElement('ul');
 //     keyboardLine.classList.add('keyboard__line');
 //     alphabet.forEach(element => {
-//       for(y=0;y<element.length;y++){
+//       for(y=0;y<element.length;y+=1){
 //         currentKey = document.createElement('li');
 //         // currentKey.innerHTML = '';
 //         currentKey.innerHTML = element[y];
@@ -636,22 +592,22 @@ createBasicKeyboard(basicAlphabet);
 function addLetters(lang) {
   keyboard.replaceChildren();
   createBasicKeyboard(basicAlphabet);
-  const tab = document.querySelector("#Tab");
-  const capsLock = document.querySelector("#CapsLock");
-  const leftShift = document.querySelector("#ShiftLeft");
+  const tab = document.querySelector('#Tab');
+  const capsLock = document.querySelector('#CapsLock');
+  const leftShift = document.querySelector('#ShiftLeft');
   const lines = [tab, capsLock, leftShift];
   // const  = document.querySelector('.keyboard');
-  for (let i = 0; i < lines.length; i++) {
+  for (let i = 0; i < lines.length; i += 1) {
     // console.log(letterAlphabet[i])
-    for (let y = letterAlphabet[i].length - 1; y > -1; y--) {
-      let key = document.createElement("li");
-      if (lang === "smallEn") {
+    for (let y = letterAlphabet[i].length - 1; y > -1; y -= 1) {
+      const key = document.createElement('li');
+      if (lang === 'smallEn') {
         key.innerText = letterAlphabet[i][y].smallEn;
-      } else if (lang === "bigEn") {
+      } else if (lang === 'bigEn') {
         key.innerText = letterAlphabet[i][y].bigEn;
-      } else if (lang === "smallRu") {
+      } else if (lang === 'smallRu') {
         key.innerText = letterAlphabet[i][y].smallRu;
-      } else if (lang === "bigRu") {
+      } else if (lang === 'bigRu') {
         key.innerText = letterAlphabet[i][y].bigRu;
       }
       key.className = letterAlphabet[i][y].class;
@@ -665,100 +621,100 @@ function addLetters(lang) {
 // addLetters(currentLang)
 
 function addTextArea() {
-  const body = document.querySelector("#body");
-  const textArea = document.createElement("text-area");
-  textArea.classList.add("text-area");
-  body.prepend(textArea);
+  // const bodyWapper = document.querySelector('#body');
+  const textArea = document.createElement('text-area');
+  textArea.classList.add('text-area');
+  bodyWapper.prepend(textArea);
 }
 addTextArea();
-let textAreaContent = "";
-document.addEventListener("keydown", function pressKeyDown(event) {
+let textAreaContent = '';
+document.addEventListener('keydown', (event) => {
   const preesedKey = document.querySelector(`#${event.code}`);
   // console.log(preesedKey)
-  preesedKey.classList.add("key_active");
+  preesedKey.classList.add('key_active');
 
-  const textArea = document.querySelector(".text-area");
-  if (event.key === "Backspace") {
+  const textArea = document.querySelector('.text-area');
+  if (event.key === 'Backspace') {
     textAreaContent = textAreaContent.slice(0, -1);
     textArea.innerText = textAreaContent;
-  } else if (event.key === "ArrowLeft") {
+  } else if (event.key === 'ArrowLeft') {
     event.preventDefault();
-    textAreaContent += "◄";
+    textAreaContent += '◄';
     textArea.innerText = textAreaContent;
-  } else if (event.key === "ArrowUp") {
+  } else if (event.key === 'ArrowUp') {
     event.preventDefault();
-    textAreaContent += "▲";
+    textAreaContent += '▲';
     textArea.innerText = textAreaContent;
-  } else if (event.key === "ArrowDown") {
+  } else if (event.key === 'ArrowDown') {
     event.preventDefault();
-    textAreaContent += "▼";
+    textAreaContent += '▼';
     textArea.innerText = textAreaContent;
-  } else if (event.key === "ArrowRight") {
+  } else if (event.key === 'ArrowRight') {
     event.preventDefault();
-    textAreaContent += "►";
+    textAreaContent += '►';
     textArea.innerText = textAreaContent;
-  } else if (event.code === "Space") {
+  } else if (event.code === 'Space') {
     event.preventDefault();
-    textAreaContent += " ";
+    textAreaContent += ' ';
     textArea.innerText = textAreaContent;
-  } else if (event.key === "Tab") {
+  } else if (event.key === 'Tab') {
     event.preventDefault();
-    textAreaContent += "\t";
+    textAreaContent += '\t';
     textArea.innerText = textAreaContent;
-  } else if (event.key === "CapsLock") {
-    if (currentLang === "smallEn") {
-      currentLang = "bigEn";
+  } else if (event.key === 'CapsLock') {
+    if (currentLang === 'smallEn') {
+      currentLang = 'bigEn';
       addLetters(currentLang);
     } else {
-      currentLang = "bigRu";
+      currentLang = 'bigRu';
       addLetters(currentLang);
     }
   } else if (event.shiftKey && event.ctrlKey) {
     // console.log('change lang')
-    if (currentLang === "smallEn") {
-      currentLang = "smallRu";
+    if (currentLang === 'smallEn') {
+      currentLang = 'smallRu';
       addLetters(currentLang);
-    } else if (currentLang === "smallRu") {
-      currentLang = "smallEn";
+    } else if (currentLang === 'smallRu') {
+      currentLang = 'smallEn';
       addLetters(currentLang);
-    } else if (currentLang === "bigEn") {
-      currentLang = "bigRu";
+    } else if (currentLang === 'bigEn') {
+      currentLang = 'bigRu';
       addLetters(currentLang);
-    } else if (currentLang === "bigRu") {
-      currentLang = "bigEn";
+    } else if (currentLang === 'bigRu') {
+      currentLang = 'bigEn';
       addLetters(currentLang);
     }
   } else if (event.shiftKey) {
     event.preventDefault();
-    if (currentLang === "smallEn") {
-      currentLang = "bigEn";
+    if (currentLang === 'smallEn') {
+      currentLang = 'bigEn';
       addLetters(currentLang);
-    } else if (currentLang === "smallRu") {
-      currentLang = "bigRu";
+    } else if (currentLang === 'smallRu') {
+      currentLang = 'bigRu';
       addLetters(currentLang);
     }
-    if (event.key !== "Shift") {
+    if (event.key !== 'Shift') {
       textAreaContent += preesedKey.innerHTML;
       textArea.innerText = textAreaContent;
     }
-  } else if (event.key === "meta") {
-    console.log("meta");
+  } else if (event.key === 'meta') {
+    // console.log('meta');
     event.preventDefault();
-  } else if (event.key === "Escape") {
+  } else if (event.key === 'Escape') {
     /* empty */
-  } else if (event.key === "Alt") {
+  } else if (event.key === 'Alt') {
     /* empty */
-  } else if (event.key === "Meta") {
+  } else if (event.key === 'Meta') {
     /* empty */
-  } else if (event.key === "Control") {
+  } else if (event.key === 'Control') {
     /* empty */
-  } else if (event.key === "Enter") {
+  } else if (event.key === 'Enter') {
     // textAreaContent+= preesedKey.innerHTML;
     // const br = document.createElement('br');
     //  textArea.append(br);
     // = textAreaContent;
 
-    textAreaContent += "\b\r";
+    textAreaContent += '\b\r';
     textArea.innerText = textAreaContent;
     // area.value =
     // area.value.substring(0, area.selectionStart) +
@@ -771,33 +727,149 @@ document.addEventListener("keydown", function pressKeyDown(event) {
   // console.log(event.code, event.key)
   // console.log(event.shiftKey, event.ctrlKey)
 });
-document.addEventListener("keyup", function pressKeyup(event) {
-  const preesedKey = document.querySelector(`#${event.code}`);
+document.addEventListener('keyup', (event) => {
+  const pressedKey = document.querySelector(`#${event.code}`);
   // console.log(preesedKey)
-  preesedKey.classList.remove("key_active");
+  pressedKey.classList.remove('key_active');
   // console.log(event.code, event.key)
-  if (event.key === "CapsLock") {
-    if (currentLang === "bigEn") {
-      currentLang = "smallEn";
+  if (event.key === 'CapsLock') {
+    if (currentLang === 'bigEn') {
+      currentLang = 'smallEn';
       addLetters(currentLang);
     } else {
-      currentLang = "smallRu";
+      currentLang = 'smallRu';
       addLetters(currentLang);
     }
-  } else if (event.key === "Shift" && event.key != "Control") {
-    if (currentLang === "bigEn") {
-      currentLang = "smallEn";
+  } else if (event.key === 'Shift' && event.key !== 'Control') {
+    if (currentLang === 'bigEn') {
+      currentLang = 'smallEn';
       addLetters(currentLang);
-    } else if (currentLang === "bigRu") {
-      currentLang = "smallRu";
+    } else if (currentLang === 'bigRu') {
+      currentLang = 'smallRu';
       addLetters(currentLang);
     }
   }
 });
 function addDescription() {
-  let Line = document.createElement("span");
-  Line.classList.add("keyboard__line");
-  Line.innerText = "Клавиатура создана на mac.\n Переключение ctrl + shift.";
-  body.append(Line);
+  const Line = document.createElement('span');
+  Line.classList.add('keyboard__line');
+  Line.innerText = 'Клавиатура создана на mac.\n Переключение ctrl + shift.';
+  bodyWapper.append(Line);
 }
 addDescription();
+
+keyboard.addEventListener('click', (event) => {
+  const { target } = event;
+  // console.log(target);
+
+  const pressedKey = document.querySelector(`#${target.id}`);
+  pressedKey.classList.add('key_active');
+
+  const textArea = document.querySelector('.text-area');
+  if (event.key === 'Backspace') {
+    textAreaContent = textAreaContent.slice(0, -1);
+    textArea.innerText = textAreaContent;
+  } else if (event.key === 'ArrowLeft') {
+    event.preventDefault();
+    textAreaContent += '◄';
+    textArea.innerText = textAreaContent;
+  } else if (event.key === 'ArrowUp') {
+    event.preventDefault();
+    textAreaContent += '▲';
+    textArea.innerText = textAreaContent;
+  } else if (event.key === 'ArrowDown') {
+    event.preventDefault();
+    textAreaContent += '▼';
+    textArea.innerText = textAreaContent;
+  } else if (event.key === 'ArrowRight') {
+    event.preventDefault();
+    textAreaContent += '►';
+    textArea.innerText = textAreaContent;
+  } else if (event.code === 'Space') {
+    event.preventDefault();
+    textAreaContent += ' ';
+    textArea.innerText = textAreaContent;
+  } else if (event.key === 'Tab') {
+    event.preventDefault();
+    textAreaContent += '\t';
+    textArea.innerText = textAreaContent;
+  } else if (event.key === 'CapsLock') {
+    if (currentLang === 'smallEn') {
+      currentLang = 'bigEn';
+      addLetters(currentLang);
+    } else {
+      currentLang = 'bigRu';
+      addLetters(currentLang);
+    }
+  } else if (event.shiftKey && event.ctrlKey) {
+    // console.log('change lang')
+    if (currentLang === 'smallEn') {
+      currentLang = 'smallRu';
+      addLetters(currentLang);
+    } else if (currentLang === 'smallRu') {
+      currentLang = 'smallEn';
+      addLetters(currentLang);
+    } else if (currentLang === 'bigEn') {
+      currentLang = 'bigRu';
+      addLetters(currentLang);
+    } else if (currentLang === 'bigRu') {
+      currentLang = 'bigEn';
+      addLetters(currentLang);
+    }
+  } else if (event.shiftKey) {
+    event.preventDefault();
+    if (currentLang === 'smallEn') {
+      currentLang = 'bigEn';
+      addLetters(currentLang);
+    } else if (currentLang === 'smallRu') {
+      currentLang = 'bigRu';
+      addLetters(currentLang);
+    }
+    if (event.key !== 'Shift') {
+      textAreaContent += pressedKey.innerHTML;
+      textArea.innerText = textAreaContent;
+    }
+  } else if (event.key === 'meta') {
+    // console.log('meta');
+    event.preventDefault();
+  } else if (event.key === 'Escape') {
+    /* empty */
+  } else if (event.key === 'Alt') {
+    /* empty */
+  } else if (event.key === 'Meta') {
+    /* empty */
+  } else if (event.key === 'Control') {
+    /* empty */
+  } else if (event.key === 'Enter') {
+    // textAreaContent+= preesedKey.innerHTML;
+    // const br = document.createElement('br');
+    //  textArea.append(br);
+    // = textAreaContent;
+
+    textAreaContent += '\b\r';
+    textArea.innerText = textAreaContent;
+    // area.value =
+    // area.value.substring(0, area.selectionStart) +
+    // "\n" +
+    // area.value.substring(area.selectionEnd, area.value.length);
+  } else {
+    textAreaContent += pressedKey.innerHTML;
+    textArea.innerText = textAreaContent;
+  }
+  // console.log(event.code, event.key)
+  // console.log(event.shiftKey, event.ctrlKey)
+});
+function setLocalStorage() {
+  localStorage.setItem('lang', currentLang);
+}
+window.addEventListener('beforeunload', setLocalStorage);
+function getLocalStorage() {
+  if (localStorage.getItem('lang')) {
+    currentLang = localStorage.getItem('lang');
+    addLetters(currentLang);
+  } else {
+    currentLang = 'smallEn';
+    addLetters(currentLang);
+  }
+}
+window.addEventListener('load', getLocalStorage);
