@@ -295,7 +295,7 @@ const letterAlphabet = [
 const basicAlphabet = [
   [
     {
-      name: 'ecs',
+      name: 'esc',
       id: 'Escape',
       class: 'key key_esc key_left',
     },
@@ -725,7 +725,7 @@ document.addEventListener('keydown', (event) => {
   } else if (event.key === 'Control') {
     /* empty */
   } else if (event.key === 'Enter') {
-    // textAreaContent+= pressedKey.innerHTML;
+    // textAreaContent+= pressedContent;
     // const br = document.createElement('br');
     //  textArea.append(br);
     // = textAreaContent;
@@ -777,40 +777,44 @@ addDescription();
 keyboard.addEventListener('click', (event) => {
   const { target } = event;
   // console.log(target);
-
   let pressedKey = document.querySelector(`#${target.id}`);
-  pressedKey.classList.add('key_active');
-
+  pressedKey.classList.toggle('key_active');
+  const pressedContent = pressedKey.innerHTML;
+  setTimeout(() => {
+    pressedKey.classList.remove('key_active');
+  }, 1000);
   const textArea = document.querySelector('.text-area');
-  textArea.preventDefault();
-  if (event.key === 'Backspace') {
+  // textArea.preventDefault();
+  if (pressedContent === 'delete') {
     textAreaContent = textAreaContent.slice(0, -1);
     textArea.value = textAreaContent;
-  } else if (event.key === 'ArrowLeft') {
+  } else if (pressedContent === 'esc') {
+    /* empty */
+  } else if (pressedContent === '◄') {
     event.preventDefault();
     textAreaContent += '◄';
     textArea.value = textAreaContent;
-  } else if (event.key === 'ArrowUp') {
+  } else if (pressedContent === '▲') {
     event.preventDefault();
     textAreaContent += '▲';
     textArea.value = textAreaContent;
-  } else if (event.key === 'ArrowDown') {
+  } else if (pressedContent === '▼') {
     event.preventDefault();
     textAreaContent += '▼';
     textArea.value = textAreaContent;
-  } else if (event.key === 'ArrowRight') {
+  } else if (pressedContent === '►') {
     event.preventDefault();
     textAreaContent += '►';
     textArea.value = textAreaContent;
-  } else if (event.code === 'Space') {
+  } else if (pressedContent === '') {
     event.preventDefault();
     textAreaContent += ' ';
     textArea.value = textAreaContent;
-  } else if (event.key === 'Tab') {
+  } else if (pressedContent === 'tab') {
     event.preventDefault();
     textAreaContent += '\t';
     textArea.value = textAreaContent;
-  } else if (event.key === 'CapsLock') {
+  } else if (pressedContent === 'capslock') {
     if (currentLang === 'smallEn') {
       currentLang = 'bigEn';
       addLetters(currentLang);
@@ -839,7 +843,7 @@ keyboard.addEventListener('click', (event) => {
       addLetters(currentLang);
       pressedKey.classList.add('key_active');
     }
-  } else if (event.shiftKey) {
+  } else if (pressedContent === 'shift') {
     event.preventDefault();
     if (currentLang === 'smallEn') {
       currentLang = 'bigEn';
@@ -852,23 +856,32 @@ keyboard.addEventListener('click', (event) => {
       pressedKey = document.querySelector(`#${target.id}`);
       pressedKey.classList.add('key_active');
     }
-    if (event.key !== 'Shift') {
-      textAreaContent += pressedKey.innerHTML;
+    setTimeout(() => {
+      if (currentLang === 'bigEn') {
+        currentLang = 'smallEn';
+        addLetters(currentLang);
+      } else if (currentLang === 'bigRu') {
+        currentLang = 'smallRu';
+        addLetters(currentLang);
+      }
+    }, 1000);
+    if (pressedContent !== 'shift') {
+      textAreaContent += pressedContent;
       textArea.value = textAreaContent;
     }
-  } else if (event.key === 'meta') {
+  } else if (pressedContent === 'cmd') {
     // console.log('meta');
     event.preventDefault();
-  } else if (event.key === 'Escape') {
+  } else if (pressedContent === 'off') {
     /* empty */
-  } else if (event.key === 'Alt') {
+  } else if (pressedContent === 'fn') {
     /* empty */
-  } else if (event.key === 'Meta') {
+  } else if (pressedContent === 'alt') {
     /* empty */
-  } else if (event.key === 'Control') {
+  } else if (pressedContent === 'ctrl') {
     /* empty */
-  } else if (event.key === 'Enter') {
-    // textAreaContent+= pressedKey.innerHTML;
+  } else if (pressedContent === 'return') {
+    // textAreaContent+= pressedContent;
     // const br = document.createElement('br');
     //  textArea.append(br);
     // = textAreaContent;
@@ -880,7 +893,7 @@ keyboard.addEventListener('click', (event) => {
     // "\n" +
     // area.value.substring(area.selectionEnd, area.value.length);
   } else {
-    textAreaContent += pressedKey.innerHTML;
+    textAreaContent += pressedContent;
     textArea.value = textAreaContent;
   }
   // console.log(event.code, event.key)
