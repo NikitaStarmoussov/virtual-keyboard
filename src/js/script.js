@@ -637,12 +637,14 @@ function addTextArea() {
   const textArea = document.createElement('textarea');
   textArea.classList.add('text-area');
   textArea.setAttribute('tabindex', '-1');
+  // textArea.preventDefault();
   // tabindex="-1"
   bodyWapper.prepend(textArea);
 }
 addTextArea();
 let textAreaContent = '';
 document.addEventListener('keydown', (event) => {
+  event.preventDefault();
   const pressedKey = document.querySelector(`#${event.code}`);
   // console.log(pressedKey)
   pressedKey.classList.toggle('key_active');
