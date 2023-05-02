@@ -10,7 +10,6 @@
 }
 .keyboard__line {
   display: flex;
-  justify-content: space-between;
 }
 .keyboard__arrow-wrapper {
   display: flex;

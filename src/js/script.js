@@ -441,7 +441,7 @@ const basicAlphabet = [
     {
       name: 'tab',
       id: 'Tab',
-      class: 'key key_l key_left',
+      class: 'key key_xl key_left',
     },
   ],
   [
@@ -559,7 +559,7 @@ function createBasicKeyboard(alphabet) {
   arrowDown.id = 'ArrowDown';
   arrowWrapper.append(arrowDown);
 }
-createBasicKeyboard(basicAlphabet);
+// createBasicKeyboard(basicAlphabet);
 // createBasicKeyboard(englishAlphabet)
 // function addKeyboard(alphabet){
 //   const keyboardWrapper = document.querySelector('.keyboard__wrapper')
@@ -588,23 +588,26 @@ createBasicKeyboard(basicAlphabet);
 
 // }
 // addKeyboard(englishAlphabet)
-
+createBasicKeyboard(basicAlphabet);
+const tab = document.querySelector('#Tab');
+const capsLock = document.querySelector('#CapsLock');
+const leftShift = document.querySelector('#ShiftLeft');
+const firstLine = document.createElement('li');
+const secondLine = document.createElement('li');
+const thirdLine = document.createElement('li');
+firstLine.classList.add('keyboard__line');
+secondLine.classList.add('keyboard__line');
+thirdLine.classList.add('keyboard__line');
+tab.after(firstLine);
+capsLock.after(secondLine);
+leftShift.after(thirdLine);
 function addLetters(lang) {
-  keyboard.replaceChildren();
-  createBasicKeyboard(basicAlphabet);
-  const tab = document.querySelector('#Tab');
-  const capsLock = document.querySelector('#CapsLock');
-  const leftShift = document.querySelector('#ShiftLeft');
-  const firstLine = document.createElement('li');
-  const secondLine = document.createElement('li');
-  const thirdLine = document.createElement('li');
-  firstLine.classList.add('keyboard__line');
-  secondLine.classList.add('keyboard__line');
-  thirdLine.classList.add('keyboard__line');
-  tab.after(firstLine);
-  capsLock.after(secondLine);
-  leftShift.after(thirdLine);
-  const lines = [tab, capsLock, leftShift];
+  firstLine.replaceChildren();
+  secondLine.replaceChildren();
+  thirdLine.replaceChildren();
+  console.log(firstLine.childNodes);
+
+  const lines = [firstLine, secondLine, thirdLine];
   // const  = document.querySelector('.keyboard');
   for (let i = 0; i < lines.length; i += 1) {
     // console.log(letterAlphabet[i])
@@ -621,7 +624,7 @@ function addLetters(lang) {
       }
       key.className = letterAlphabet[i][y].class;
       key.id = letterAlphabet[i][y].id;
-      lines[i].after(key);
+      lines[i].prepend(key);
     }
   }
   // console.log('del')
@@ -633,6 +636,8 @@ function addTextArea() {
   // const bodyWapper = document.querySelector('#body');
   const textArea = document.createElement('textarea');
   textArea.classList.add('text-area');
+  textArea.setAttribute('tabindex', '-1');
+  // tabindex="-1"
   bodyWapper.prepend(textArea);
 }
 addTextArea();
@@ -640,7 +645,7 @@ let textAreaContent = '';
 document.addEventListener('keydown', (event) => {
   const pressedKey = document.querySelector(`#${event.code}`);
   // console.log(pressedKey)
-  pressedKey.classList.add('key_active');
+  pressedKey.classList.toggle('key_active');
 
   const textArea = document.querySelector('.text-area');
   if (event.key === 'Backspace') {
