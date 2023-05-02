@@ -1,7 +1,3 @@
-// document.addEventListener('keydown', function pressKeyDown(event){
-//   console.log(event)
-// })
-// first alphabet for english keyboard
 let currentLang = 0;
 
 const letterAlphabet = [
@@ -532,8 +528,6 @@ function createBasicKeyboard(alphabet) {
   keyboardWrapper.classList.add('keyboard__wrapper', 'container');
   keyboard.prepend(keyboardWrapper);
   for (let i = 0; i < 6; i += 1) {
-    // TODO change 2 for 6
-
     let keyboardLine = 0;
     keyboardLine = document.createElement('ul');
     keyboardLine.classList.add('keyboard__line');
@@ -559,35 +553,7 @@ function createBasicKeyboard(alphabet) {
   arrowDown.id = 'ArrowDown';
   arrowWrapper.append(arrowDown);
 }
-// createBasicKeyboard(basicAlphabet);
-// createBasicKeyboard(englishAlphabet)
-// function addKeyboard(alphabet){
-//   const keyboardWrapper = document.querySelector('.keyboard__wrapper')
-//   let keyboardLine;
-//   let currentKey;
-//   //todo change for add all html elements
-//   for(i=0;i<6;i+=1){
-//     keyboardLine = document.createElement('ul');
-//     keyboardLine.classList.add('keyboard__line');
-//     alphabet.forEach(element => {
-//       for(y=0;y<element.length;y+=1){
-//         currentKey = document.createElement('li');
-//         // currentKey.innerHTML = '';
-//         currentKey.innerHTML = element[y];
-//         keyboardLine.prepend(currentKey);
-//       }
 
-//       if(element==='esc'){
-//       }
-
-//     });
-//     keyboardWrapper.prepend(keyboardLine);
-//   }
-
-// console.log(keyboardLine)
-
-// }
-// addKeyboard(englishAlphabet)
 createBasicKeyboard(basicAlphabet);
 const tab = document.querySelector('#Tab');
 const capsLock = document.querySelector('#CapsLock');
@@ -605,12 +571,9 @@ function addLetters(lang) {
   firstLine.replaceChildren();
   secondLine.replaceChildren();
   thirdLine.replaceChildren();
-  console.log(firstLine.childNodes);
 
   const lines = [firstLine, secondLine, thirdLine];
-  // const  = document.querySelector('.keyboard');
   for (let i = 0; i < lines.length; i += 1) {
-    // console.log(letterAlphabet[i])
     for (let y = letterAlphabet[i].length - 1; y > -1; y -= 1) {
       const key = document.createElement('li');
       if (lang === 'smallEn') {
@@ -627,18 +590,13 @@ function addLetters(lang) {
       lines[i].prepend(key);
     }
   }
-  // console.log('del')
 }
-// console.log(letterAlphabet[0].length)
-// addLetters(currentLang)
 
 function addTextArea() {
-  // const bodyWapper = document.querySelector('#body');
   const textArea = document.createElement('textarea');
   textArea.classList.add('text-area');
   textArea.setAttribute('tabindex', '-1');
-  // textArea.preventDefault();
-  // tabindex="-1"
+
   bodyWapper.prepend(textArea);
 }
 addTextArea();
@@ -646,7 +604,7 @@ let textAreaContent = '';
 document.addEventListener('keydown', (event) => {
   event.preventDefault();
   const pressedKey = document.querySelector(`#${event.code}`);
-  // console.log(pressedKey)
+
   pressedKey.classList.toggle('key_active');
 
   const textArea = document.querySelector('.text-area');
@@ -686,7 +644,6 @@ document.addEventListener('keydown', (event) => {
       addLetters(currentLang);
     }
   } else if (event.shiftKey && event.ctrlKey) {
-    // console.log('change lang')
     if (currentLang === 'smallEn') {
       currentLang = 'smallRu';
       addLetters(currentLang);
@@ -714,7 +671,6 @@ document.addEventListener('keydown', (event) => {
       textArea.value = textAreaContent;
     }
   } else if (event.key === 'meta') {
-    // console.log('meta');
     event.preventDefault();
   } else if (event.key === 'Escape') {
     /* empty */
@@ -725,29 +681,18 @@ document.addEventListener('keydown', (event) => {
   } else if (event.key === 'Control') {
     /* empty */
   } else if (event.key === 'Enter') {
-    // textAreaContent+= pressedContent;
-    // const br = document.createElement('br');
-    //  textArea.append(br);
-    // = textAreaContent;
-
     textAreaContent += '\b\r';
     textArea.value = textAreaContent;
-    // area.value =
-    // area.value.substring(0, area.selectionStart) +
-    // "\n" +
-    // area.value.substring(area.selectionEnd, area.value.length);
   } else {
     textAreaContent += pressedKey.innerHTML;
     textArea.value = textAreaContent;
   }
-  // console.log(event.code, event.key)
-  // console.log(event.shiftKey, event.ctrlKey)
 });
 document.addEventListener('keyup', (event) => {
   const pressedKey = document.querySelector(`#${event.code}`);
-  // console.log(pressedKey)
+
   pressedKey.classList.remove('key_active');
-  // console.log(event.code, event.key)
+
   if (event.key === 'CapsLock') {
     if (currentLang === 'bigEn') {
       currentLang = 'smallEn';
@@ -776,7 +721,7 @@ addDescription();
 
 keyboard.addEventListener('click', (event) => {
   const { target } = event;
-  // console.log(target);
+
   let pressedKey = document.querySelector(`#${target.id}`);
   pressedKey.classList.toggle('key_active');
   const pressedContent = pressedKey.innerHTML;
@@ -784,7 +729,7 @@ keyboard.addEventListener('click', (event) => {
     pressedKey.classList.remove('key_active');
   }, 1000);
   const textArea = document.querySelector('.text-area');
-  // textArea.preventDefault();
+
   if (pressedContent === 'delete') {
     textAreaContent = textAreaContent.slice(0, -1);
     textArea.value = textAreaContent;
@@ -825,7 +770,6 @@ keyboard.addEventListener('click', (event) => {
       pressedKey.classList.add('key_active');
     }
   } else if (event.shiftKey && event.ctrlKey) {
-    // console.log('change lang')
     if (currentLang === 'smallEn') {
       currentLang = 'smallRu';
       addLetters(currentLang);
@@ -870,7 +814,6 @@ keyboard.addEventListener('click', (event) => {
       textArea.value = textAreaContent;
     }
   } else if (pressedContent === 'cmd') {
-    // console.log('meta');
     event.preventDefault();
   } else if (pressedContent === 'off') {
     /* empty */
@@ -881,23 +824,12 @@ keyboard.addEventListener('click', (event) => {
   } else if (pressedContent === 'ctrl') {
     /* empty */
   } else if (pressedContent === 'return') {
-    // textAreaContent+= pressedContent;
-    // const br = document.createElement('br');
-    //  textArea.append(br);
-    // = textAreaContent;
-
     textAreaContent += '\b\r';
     textArea.value = textAreaContent;
-    // area.value =
-    // area.value.substring(0, area.selectionStart) +
-    // "\n" +
-    // area.value.substring(area.selectionEnd, area.value.length);
   } else {
     textAreaContent += pressedContent;
     textArea.value = textAreaContent;
   }
-  // console.log(event.code, event.key)
-  // console.log(event.shiftKey, event.ctrlKey)
 });
 function setLocalStorage() {
   localStorage.setItem('lang', currentLang);
